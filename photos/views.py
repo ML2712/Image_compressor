@@ -42,6 +42,7 @@ def addPhoto(request):
 
         # compress the image here and then save it
         i = Image.open(image)
+        i = i.convert('RGB')
         thumb_io = BytesIO()
         i.thumbnail((500, 500))
         i.save(thumb_io, format='JPEG', quality=60)
